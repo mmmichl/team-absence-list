@@ -1,0 +1,213 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+/* END RESET */
+
+/* Palatte
+  E8DDCB
+  CDB380
+  036564
+  033649
+  031634
+*/
+html {
+  font-family: 'Roboto Condensed', sans-serif;
+  font-size: 14px;
+  color: #031634;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0.4rem;
+  margin-bottom: 2rem;
+}
+
+p {
+  margin: 1em 0;
+  max-width: 70em;
+}
+
+h1 {
+  font-size: 3em;
+}
+
+.month {
+  page-break-inside: avoid;
+}
+
+.month h2 {
+  margin-bottom: 0.5rem;
+
+  font-size: 2rem;
+}
+
+.wrapper {
+  display: inline-block;
+  margin-bottom: 2rem;
+}
+
+.table {
+  display: flex;
+  flex-direction: row;
+  border: #031634 solid 1px;
+}
+
+.table ol {
+  display: inline-flex;
+  flex-direction: column;
+  position: relative;
+
+  border-left: #031634 solid 1px;
+}
+.table ol:first-child {
+  border-left: none;
+}
+
+.table ol li {
+  height: 1.4rem;
+  vertical-align: middle;
+  padding: 0.1rem 0.2rem;
+  border-top: #031634 solid 1px;
+}
+
+.table ol li.header {
+  height: 2rem;
+  border-top: none;
+  text-align: center;
+}
+
+.table ol.names li {
+  position: relative;
+  line-height: 1.4rem;
+  overflow: hidden;
+  min-width: 5rem;
+}
+
+.table ol.names li.input {
+  position: relative;
+}
+
+.table ol.names .remove {
+  position: absolute;
+  top: 0.3rem;
+  right: 0.2rem;
+  display: inline-block;
+  width: 1rem;
+  height: 1rem;
+  margin: auto 0;
+
+  border-radius: 1rem;
+  font-size: 1rem;
+  line-height: 1rem;
+  text-align: center;
+  color: #E8DDCB;
+  background-color: #036564;
+  opacity: 0.6;
+  cursor: pointer;
+}
+
+.table ol.names input {
+  position: absolute;
+  width: 100%;
+  line-height: 1.4rem;
+
+  padding: 0;
+  margin: 0;
+  border: none;
+
+  font-family: 'Roboto Condensed', sans-serif;
+  font-size: 100%;
+}
+
+.table ol.day {
+  width: 1.6rem;
+}
+
+.table ol.day .holiday {
+  position: absolute;
+  padding: 0.3em 0.7em;
+
+  bottom: 0;
+  top: 2.2rem;
+  left: 0;
+  right: 0;
+
+  overflow: hidden;
+  font-size: 0.8em;
+  text-transform: uppercase;
+  word-break: break-all;
+  text-align: center;
+}
+
+.table ol.day .weeknumber {
+  position: absolute;
+
+  top: -0.9rem;
+  left: 0;
+  right: 0;
+
+  overflow: hidden;
+  font-size: 0.9em;
+  text-align: left;
+  opacity: 0.6;
+}
+
+.free {
+  color: #036564;
+  background-color: #E8DDCB;
+  -webkit-print-color-adjust: exact; 
+}
+
+@media print {
+  @page {size: landscape}
+
+  .no-print {
+    display: none !important;
+  }
+}
+
+  
+@media print and (orientation:portrait) { 
+  #app {
+    transform: rotate(90deg);
+    transform-origin: bottom left;
+    position: relative;
+    top: -100vw;
+
+    height:100vw;
+    width:100vh;
+  }
+ }

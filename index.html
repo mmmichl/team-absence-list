@@ -1,0 +1,59 @@
+<html><head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+
+  <title>Absence List of Team Members</title>
+  <meta name="description" content="Have an overview of the absence of your team members." />
+  <meta name="keywords" content="absence list, team, vacation, planing, calendar, scrum, agile" />
+
+  <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="layout.css">
+</head>
+<body>
+  <script src="https://unpkg.com/vue/dist/vue.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.17.1/moment-with-locales.min.js"></script>
+
+  <h1 class="no-print">Absence List</h1>
+  <p class="no-print">
+    Have an overview of the absence of your team members. Simply add the names, have the national holidays
+    automatically added and print this page (only essential parts will be printed). Stick the page on the
+    wall and have the boxes ticked, wenn a person is absent. Enjoy the overview.
+  </p>
+  <p class="no-print">
+    Print hint: For optimal printing results ensure portrait orientation and enable background colos.</br>
+    Currently only Austrian holidays are supported.
+  </p>
+
+  <div id="app">
+    <div v-for="(month, idx) in months" id="month" class="month">
+      <h2>{{month.label}}</h2>
+      <div class="wrapper">
+        <div class="table">
+          <ol class="names">
+            <li class="header">Name</li>
+            <li v-for="name in team">
+              {{name}}
+              <span v-if="idx == 0" @click="removeGirl(name)" class="remove no-print">&times;</span>
+            </li>
+            <li v-if="idx == 0" class="input no-print">
+              <input type="text" placeholder="Add name..."
+                     v-model="newGirl" @keyup.enter="addGirl">
+            </li>
+          </ol>
+          <ol v-for="d in month.days" class="day" v-bind:class="{ free: d.isWe || d.holiday }">
+            <li class="header">{{d.day}}<div>{{d.wd}}</div></li>
+            <div v-if="d.wnr" class="weeknumber">{{d.wnr}}</div>
+            <div v-if="d.holiday" class="holiday">{{d.holiday}}</div>
+            <li v-for="name in team"></li>
+            <li v-if="idx == 0" class="no-print"></li>
+          </ol>
+        </div>
+      </div>
+    </div>
+    <p class="no-print">
+      <button @click="addMonth()">Add Month</button>
+      <button @click="removeMonth()">Remove Month</button>
+    </p>
+  </div>
+
+   <script src="app.js"></script>
+</body></html>

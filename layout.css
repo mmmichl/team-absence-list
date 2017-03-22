@@ -60,6 +60,10 @@ p {
   max-width: 70em;
 }
 
+.gh-badge-margin {
+  margin-right: 150px;
+}
+
 h1 {
   font-size: 3em;
 }
